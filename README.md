@@ -1,4 +1,4 @@
-# Travelling Salesman Project
+# Travelling Salesman Project :airplane:
 
 ## CC76-TP-201802
 
