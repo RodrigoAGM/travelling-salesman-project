@@ -1,1 +1,1 @@
-# travelling-salesman-project
+# Travelling Salesman Project
