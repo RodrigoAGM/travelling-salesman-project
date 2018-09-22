@@ -1,7 +1,6 @@
 import csv
 
 def readFile(filename):
-   
     dictionary = {}
     with open(filename) as csvfile:
         file = csv.reader(csvfile, delimiter=';')
@@ -21,6 +20,5 @@ def readFile(filename):
     return dictionary
 
 
-def point_dist(self, x1,y1,x2,y2):      
-    readFile('Book4.csv')   
+def calculateDistance(x1,y1,x2,y2):      
     return ((x1-x2)**2 + (y1-y2)**2)**(0.5)
