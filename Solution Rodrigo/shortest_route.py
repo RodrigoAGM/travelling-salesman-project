@@ -73,7 +73,7 @@ def TSP(distance_matrix, populated_centers, pos):
 
     print(path)
 
-populated_centers = readCSV('fakedataset.csv')
+populated_centers = readCSV('testdataset.csv')
 distance_matrix = calculateDistances(populated_centers)
 
 

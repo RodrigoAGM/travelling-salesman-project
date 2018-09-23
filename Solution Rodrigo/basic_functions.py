@@ -31,7 +31,7 @@ def calculateDistances(array):
     distance_matrix = []
     row = []
     #n = len(array)
-    n = 100
+    n = 1000
     for fil in range(n):
         for col in range(n):
             if fil == col:
@@ -43,7 +43,3 @@ def calculateDistances(array):
         distance_matrix.append(row)
         row = []
     return distance_matrix
-
-#D = readCSV('dataset.csv')
-#distances = calculateDistances(D)
-#print(D)
