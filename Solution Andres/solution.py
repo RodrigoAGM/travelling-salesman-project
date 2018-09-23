@@ -22,10 +22,10 @@ def readFile(filename):
 def calculateDistance(x1,y1,x2,y2):        
     return ((x1-x2)**2 + (y1-y2)**2)**(0.5)
 
-def dijkstra(dicEnlaces, distance):
+def dijkstra(enlaces, distance):
     shortest_distance = {}
     predecessor = {}
-    unseenNodes = dicEnlaces
+    unseenNodes = enlaces
     distanciaNodos = distance
     infinity=99999
     
@@ -48,31 +48,31 @@ def dijkstra(dicEnlaces, distance):
             predecessor[unseenNodes[minNode]] = minNode
         unseenNodes.pop(minNode)
         """
-    distancia=0
+    dist=0
     for i in range(len(shortest_distance)):
-        if distancia>shortest_distance[i]:
-           distancia>shortest_distance[i] 
+        if dist>shortest_distance[i]:
+           dist>shortest_distance[i] 
 
-    return distancia
+    return dist
     
 
-def completaDiccionarios(filename):
+def makingDictonarys(filename):
     
     dictionary = readFile(filename)
     distance = {}
     nodo={}
     keyFor={}
-    dicEnlaces = {}
+    enlaces = {}
 
     for i in range(len(dictionary)):
         for j in range(1,len(dictionary)):
             nodo = calculateDistance(float(dictionary[i]["x"]),float(dictionary[i]["y"]), float(dictionary[j]["x"]),float(dictionary[j]["y"]))
             keyFor=dictionary[i]["id"]
             distance[i]=nodo
-            dicEnlaces[i] = keyFor
+            enlaces[i] = keyFor
             del nodo
             del keyFor
         
-    dijkstra(dicEnlaces, distance)
+    dijkstra(enlaces, distance)
 
-print(completaDiccionarios("datasetTest.csv"))
+print(makingDictonarys("datasetTest.csv"))
