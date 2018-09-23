@@ -41,8 +41,10 @@ def calculateDistances(dictionary, department):
     distance_matrix = []
     row = []
     n = len(dictionary[department])
+    print(n)
     for fil in range(n):
         for col in range(n):
+            print(col)
             if fil == col:
                 row.append(0)
             else:
@@ -58,19 +60,8 @@ def distancesDictionary(dictionary, departments):
     distance_dictionary = {}
 
     for pos in range(n):
+        print(pos)
         dep = departments[pos]
         distance_dictionary[dep] = calculateDistances(dictionary, dep)
 
     return distance_dictionary
-
-
-dictionary = {}
-departments = []
-distances = {}
-
-dictionary, departments = readCSV('testdataset.csv')
-distances = distancesDictionary(dictionary,departments)
-
-print(departments)
-print(dictionary[departments[0]])
-print(distances[departments[0]])

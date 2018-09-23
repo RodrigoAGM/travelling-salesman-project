@@ -30,8 +30,8 @@ def calculateDistances(array):
     """
     distance_matrix = []
     row = []
-    #n = len(array)
-    n = 1000
+    n = len(array)
+    #n = 1000
     for fil in range(n):
         for col in range(n):
             if fil == col:
