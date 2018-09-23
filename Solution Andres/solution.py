@@ -16,7 +16,6 @@ def readFile(filename):
                 del elem
                 
             idelem += 1
-    #print(dictionary[0]["name"]) -> Huamampallpa
     return dictionary
 
 def calculateDistance(x1,y1,x2,y2):        
