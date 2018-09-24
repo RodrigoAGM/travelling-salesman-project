@@ -21,57 +21,55 @@ def readFile(filename):
 def calculateDistance(x1,y1,x2,y2):        
     return ((x1-x2)**2 + (y1-y2)**2)**(0.5)
 
-def dijkstra(enlaces, distance):
-    shortest_distance = {}
-    predecessor = {}
-    unseenNodes = enlaces
-    distanciaNodos = distance
-    infinity=99999
-    
-    for node in distanciaNodos:
-        shortest_distance[node] = infinity
-    shortest_distance[0]=0
-
-
-    """
-    while unseenNodes:
-        minNode = None
-        for node in unseenNodes:
-            if minNode is None:
-                minNode = node 
-            elif shortest_distance[node] > shortest_distance[minNode]:
-                minNode = node
-        
-        if distanciaNodos[minNode] + shortest_distance[minNode] < shortest_distance[unseenNodes[minNode]]:
-            shortest_distance[unseenNodes[minNode]] = distanciaNodos[minNode] + shortest_distance[minNode] 
-            predecessor[unseenNodes[minNode]] = minNode
-        unseenNodes.pop(minNode)
-        """
-    dist=0
-    for i in range(len(shortest_distance)):
-        if dist>shortest_distance[i]:
-           dist>shortest_distance[i] 
-
-    return dist
-    
 
 def makingDictonarys(filename):
-    
     dictionary = readFile(filename)
+    aux={}
+    aux2={}
     distance = {}
-    nodo={}
-    keyFor={}
+    distancia={}
+    keys={}
     enlaces = {}
+    
+    for i in range(len(dictionary)):
+        contador=0
+        for j in range(1,len(dictionary)):
+            distancia = calculateDistance(float(dictionary[i]["x"]),float(dictionary[i]["y"]), float(dictionary[j]["x"]),float(dictionary[j]["y"]))
+            keys=dictionary[i]["id"]
+            contador+=1
+            aux[j]=distancia          
+            aux2[j] = keys
+            del keys
+            del distancia
+        if contador ==10:
+            distance[j]= aux
+            enlaces[j]=aux2
+    del aux
+    del aux2
+    return dijkstra(enlaces, distance,dictionary)
 
+
+
+def dijkstra(enlaces, distance,dictionary):
+    
+    origen={}
+    origen[0]=dictionary[0]["name"]
+    origen[1]=dictionary[0]["x"]
+    origen[2]=dictionary[0]["y"]
+
+    path=[]
+    distancia=distance
+    enlace=enlaces
+    """
     for i in range(len(dictionary)):
         for j in range(1,len(dictionary)):
-            nodo = calculateDistance(float(dictionary[i]["x"]),float(dictionary[i]["y"]), float(dictionary[j]["x"]),float(dictionary[j]["y"]))
-            keyFor=dictionary[i]["id"]
-            distance[i]=nodo
-            enlaces[i] = keyFor
-            del nodo
-            del keyFor
-        
-    dijkstra(enlaces, distance)
+            if enlace[i] < enlace[j]:
+                menor=enlace[i]"""
 
-print(makingDictonarys("datasetTest.csv"))
+    print(enlace[enlace[0]])
+
+
+
+makingDictonarys("datasetTest.csv")
+
+
