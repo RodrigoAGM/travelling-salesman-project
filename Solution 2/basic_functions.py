@@ -41,10 +41,8 @@ def calculateDistances(dictionary, department):
     distance_matrix = []
     row = []
     n = len(dictionary[department])
-    print(n)
     for fil in range(n):
         for col in range(n):
-            print(col)
             if fil == col:
                 row.append(0)
             else:
@@ -55,12 +53,14 @@ def calculateDistances(dictionary, department):
         row = []
     return distance_matrix
 
-def distancesDictionary(dictionary, departments):
+def calculateDistancesDictionary(dictionary, departments):
+    """
+    Function that generates a dictionary of distances organized by departments
+    """
     n = len(departments)
     distance_dictionary = {}
 
     for pos in range(n):
-        print(pos)
         dep = departments[pos]
         distance_dictionary[dep] = calculateDistances(dictionary, dep)
 
