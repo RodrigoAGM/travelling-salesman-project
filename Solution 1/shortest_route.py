@@ -10,21 +10,21 @@ def getShortestNode(distances):
 
     def min(array, i, j):
         if i == j:
-            return array[i]
+            return i
         else:
             med = int((i+j) / 2)
             medIzq = min(array,i,med)
             medDer = min(array,med+1,j)
-            if medDer == 0:
+            if array[medDer] == 0:
                 return medIzq
-            elif medIzq == 0:
+            elif array[medIzq] == 0:
                 return medDer
-            elif medDer < medIzq:
+            elif array[medDer] < array[medIzq]:
                 return medDer
             else:
                 return medIzq
 
-    return distances.index(min(distances,0,n-1))
+    return min(distances,0,n-1)
 
 def rebuildArrays(distance_matrix, populated_centers, delPos):
     """
