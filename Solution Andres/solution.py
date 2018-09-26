@@ -1,21 +1,18 @@
 import csv
 def readFile(filename):
     dictionary = {}
-    with open(filename) as csvfile:
+    with open(filename, encoding='utf-8-sig') as csvfile:
         file = csv.reader(csvfile, delimiter=',')
-        idelem = -1
-
+        contador=1
         for row in file:
-            if idelem != -1:
                 elem = {}
                 elem["id"]=row[0]
                 elem["name"] = row[1]
                 elem["x"] = float(row[2])
                 elem["y"] = float(row[3])
-                dictionary[idelem] = elem
+                dictionary[contador] = elem
+                contador+=1
                 del elem
-                
-            idelem += 1
     return dictionary
 
 def calculateDistance(x1,y1,x2,y2):        
@@ -24,32 +21,26 @@ def calculateDistance(x1,y1,x2,y2):
 
 def makingDictonarys(filename):
     dictionary = readFile(filename)
-    aux={}
-    aux2={}
-    distance = {}
-    distancia={}
-    keys={}
     enlaces = {}
+    distancia={}
     
-    for i in range(len(dictionary)):
-        contador=0
-        for j in range(1,len(dictionary)):
-            distancia = calculateDistance(float(dictionary[i]["x"]),float(dictionary[i]["y"]), float(dictionary[j]["x"]),float(dictionary[j]["y"]))
-            keys=dictionary[i]["id"]
+    for i in range(1,len(dictionary)+1):
+        aux={}
+        aux2={}
+        contador=1
+        for j in range(1,len(dictionary)+1):
             contador+=1
-            aux[j]=distancia          
-            aux2[j] = keys
-            del keys
-            del distancia
-        if contador ==10:
-            distance[j]= aux
-            enlaces[j]=aux2
-    del aux
-    del aux2
-    return dijkstra(enlaces, distance,dictionary)
+            aux[j] = calculateDistance(float(dictionary[i]["x"]),float(dictionary[i]["y"]), float(dictionary[j]["x"]),float(dictionary[j]["y"]))
+            aux2[j]=dictionary[i]["id"]
+        if contador == len(dictionary)+1:
+            distancia[i]=aux
+            enlaces[i]=aux2
+            del aux
+            del aux2
+    print(enlaces)
+    #return dijkstra(enlaces, distance,dictionary)
 
-
-
+"""
 def dijkstra(enlaces, distance,dictionary):
     
     origen={}
@@ -60,13 +51,9 @@ def dijkstra(enlaces, distance,dictionary):
     path=[]
     distancia=distance
     enlace=enlaces
-    """
-    for i in range(len(dictionary)):
-        for j in range(1,len(dictionary)):
-            if enlace[i] < enlace[j]:
-                menor=enlace[i]"""
-
-    print(enlace[enlace[0]])
+    unSeenNodes=[]
+""" 
+    #print(enlace[enlace[0]])
 
 
 
