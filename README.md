@@ -9,7 +9,7 @@ Este proyecto está implementado para el dataset del Ministerio de Educación de
 ## CC76-TP-201802
 Nuestro grupo decidió realizar 3 algoritmos uno cada uno, usando como base el agoritmo de busqueda [Dijkstra](https://es.wikipedia.org/wiki/Algoritmo_de_Dijkstra)  
 <p align="center">
-  ![alt text](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif)
+  <img width="460" height="300" src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif">
 </p>
 
 
