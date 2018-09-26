@@ -8,7 +8,10 @@ Este proyecto está implementado para el dataset del Ministerio de Educación de
 
 ## CC76-TP-201802
 Nuestro grupo decidió realizar 3 algoritmos uno cada uno, usando como base el agoritmo de busqueda [Dijkstra](https://es.wikipedia.org/wiki/Algoritmo_de_Dijkstra)  
-![alt text](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif)
+<p align="center">
+  ![alt text](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif)
+</p>
+
 
 
 <!-- You can access the project via url: http://localhost:8000/ShortestPathMain/ -->
