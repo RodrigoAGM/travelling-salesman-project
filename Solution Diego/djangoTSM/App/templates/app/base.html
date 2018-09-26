@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% if title == "Andres Lopez's Solution" %}
+        <title>{{ title }}</title>
+    {% elif title == "Rodrigo Guadalupe's Solution" %}
+        <title>{{ title }}</title>
+    {% elif title == "Diego Salas' Solution" %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Traveling SalesMan Project</title>
+    {% endif %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>

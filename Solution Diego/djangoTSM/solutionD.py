@@ -3,13 +3,12 @@ import csv
 def calcularDistancia(longitud1, longitud2, latitud1, latitud2):
     return ((longitud1-longitud2)**2 + (latitud1-latitud2)**2)**(0.5)
 
-def dijkstra(dicEnlaces, dicPesos, dicAsignacionID, start, goal):
+def dijkstra(dicEnlaces, dicPesos, start, goal):
     
     shortest_distance = {}
     predecessor = {}
     unseenNodes = dicEnlaces
     distanciaNodos = dicPesos
-    idNodos = dicAsignacionID
     infinity = 999999
     path = []
     
@@ -30,23 +29,17 @@ def dijkstra(dicEnlaces, dicPesos, dicAsignacionID, start, goal):
             predecessor[unseenNodes[minNode]] = minNode
         unseenNodes.pop(minNode)
     
-    print(shortest_distance[goal])
+    currentNode = goal
+    while currentNode != start:
+        try:
+            path.insert(0, currentNode)
+            currentNode = predecessor[currentNode]
+        except KeyError:
+            return 'No existe camino', None
+
+    if shortest_distance[goal] != infinity:
+        return shortest_distance[goal], path
     
-#     currentNode = goal
-#     while currentNode != start:
-#         try:
-#             path.insert(0, currentNode)
-#             currentNode = predecessor[currentNode]
-#         except KeyError:
-#             print('No existe camino')
-#             break
-            
-#     print(shortest_distance[goal])
- 
-            
-#     if shortest_distance[goal] != infinity:
-#         print('La distancia más corta es:', shortest_distance[goal])
-#         print('El camino es es:', path)
 
 def readCSV(filename):
     """
@@ -90,6 +83,4 @@ def completaDiccionarios(filename, start, goal):
 #     print('enlaces: ', dicEnlaces)
 #     print('asignacionID: ', dicAsignacionID)
 
-    dijkstra(dicEnlaces, dicPesos, dicAsignacionID, start, goal)
-
-completaDiccionarios('prueba.csv', 0, 1)
+    return dijkstra(dicEnlaces, dicPesos, start, goal)
