@@ -78,9 +78,5 @@ def completaDiccionarios(filename, start, goal):
                                          dictionary[key]['latitud'], dictionary[dictionary[key]['idForaneo']]['latitud'])
         dicEnlaces[key] = dictionary[key]['idForaneo']
         dicAsignacionID[key] = dictionary[key]['nombre']
-        
-#     print('pesos: ', dicPesos)
-#     print('enlaces: ', dicEnlaces)
-#     print('asignacionID: ', dicAsignacionID)
 
     return dijkstra(dicEnlaces, dicPesos, start, goal)

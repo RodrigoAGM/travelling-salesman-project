@@ -1,6 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'app/main.css' %}">
+
     {% if title == "Andres Lopez's Solution" %}
         <title>{{ title }}</title>
     {% elif title == "Rodrigo Guadalupe's Solution" %}
@@ -12,6 +23,58 @@
     {% endif %}
 </head>
 <body>
-    {% block content %}{% endblock %}
+    <header class="site-header">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+        <a class="navbar-brand mr-4" href="/">Traveling SalesMan Project App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" href="/sol1">Solution1</a>
+            <a class="nav-item nav-link" href="/sol2">Solution2</a>
+            <a class="nav-item nav-link" href="/sol3">Solution3</a>
+            </div>
+        </div>
+        </div>
+    </nav>
+    </header>   
+
+    <main role="main" class="container" style="padding: 50px">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}{% endblock %}
+            </div>
+            <div class="col-md-4">
+            <div class="content-section">
+                <h3>Dijkstra</h3>
+                <img src ="https://camo.githubusercontent.com/c032ca7debcc8e6cccee3f1e22e0eb737cd45547/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f352f35372f44696a6b737472615f416e696d6174696f6e2e676966">
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer row mt-5" style="background-color: #2E2E2E">
+	<div class="container mt-0">
+		<div class="row ">
+			<div class="col-md-12 mt-5 text-center">
+				<h1 style="color: white">Traveling SalesMan Project</h1>
+				<h4 style="color: white">Hecho por:</h4>
+				<p class="social-icons-header">
+                    <a href="https://github.com/DiegoSalas27"> Diego Salas Noain</a><br>
+                    <a href="https://github.com/Daztery"> Andrés Lopez Hurtado</a><br>
+                    <a href="https://github.com/RodrigoAGM"> Rodrigo Guadalupe Medina</a>
+				 </p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </body>
 </html>

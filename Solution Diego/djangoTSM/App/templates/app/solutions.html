@@ -1,8 +1,35 @@
 {% extends "app/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-    <h1>{{ heading1 }}</h1>
-    <h2>Starting node: {{ start }}</h2>
-    <h2>Goal node: {{ goal }}</h2>
-    <h2>The shortest distance is: {{ shortestPath }}</h2>
-    <h2>The path is: {{ path }}</h2>
+
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="container">
+                <h1>Enter starting node and goal node:</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <span>Start: </span><input type='text' name='start'/>
+                        <span>Goal: </span><input type='text' name='goal'/>
+                        <button class="btn btn-outline-info" type="submit">Calculate</button>
+                    </div>
+                </form>
+            </div>
+            <br>
+        </div>
+    </article>
+
+    <article class="media content-section">
+        <div class="media-body">
+        <h1>{{ heading1 }}</h1>
+        <br>
+            <div class="article-metadata">
+                <h4 class="mr-2">Starting node: {{ start }}</h4>
+                <h4  class="mr-2">Goal node: {{ goal }}</h4>
+            </div>
+            <h4>The shortest distance is: {{ shortestPath }}</h4>
+            <h4>The path is: {{ path }}</h4>
+        </div>
+    </article>
+    
 {% endblock content %}
