@@ -5,15 +5,17 @@
     <article class="media content-section">
         <div class="media-body">
             <div class="container">
-                {% if title != "Diego Salas' Solution" %}
+                {% if title == "Rodrigo Guadalupe's Solution" %}
                     <h1>Click the button to see the result:</h1>
+                {% elif title == "Diego Salas' Solution esp" %}
+                    <h1>Enter letters from 'a' to 'e':</h1>
                 {% else %}
                     <h1>Enter starting node and goal node:</h1>
                 {% endif %}
                 <form method="POST">
                     {% csrf_token %}
                     <div class="form-group">
-                        {% if title != "Diego Salas' Solution" %}
+                        {% if title != "Diego Salas' Solution" and title != "Diego Salas' Solution esp" %}
                             <button class="btn btn-outline-info" type="submit">Calculate</button>
                         {% else %}
                             <span>Start: </span><input type='text' name='start'/>
@@ -29,7 +31,7 @@
 
     <article class="media content-section">
         <div class="media-body">
-        {% if title != "Diego Salas' Solution" %}
+        {% if title != "Diego Salas' Solution" and title != "Diego Salas' Solution esp" %}
             <h1>{{ heading1 }}</h1>
             <br>
             <div class="article-metadata">
