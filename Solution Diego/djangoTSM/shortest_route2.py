@@ -85,3 +85,8 @@ def CalculatePahts(distancesDictionary, places, palcesDictionary):
         print(dep)
         pathsDictionary[dep] = TSP(distancesDictionary[dep], palcesDictionary[dep], 0)
         print(pathsDictionary[dep])
+    return pathsDictionary
+
+palcesDictionary, places = readCSV('testdataset.csv')
+distancesDictionary = calculateDistancesDictionary(palcesDictionary, places)
+CalculatePahts(distancesDictionary, places, palcesDictionary)

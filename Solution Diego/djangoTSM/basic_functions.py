@@ -1,6 +1,6 @@
 import csv
 
-def readCSV(filename):
+def readCSV1(filename):
     """
     Function that recieves a filename, reads that csv file and returns an array
     of dictionaries with the name, xcord and ycord of each populated center of the file. 

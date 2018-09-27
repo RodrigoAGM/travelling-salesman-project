@@ -3,7 +3,9 @@ from App.forms import HomeForm
 from django.shortcuts import render
 from solutionD2 import dijkstraMOD, dijkstraMOD2 #diego
 from shortest_route import TSP #rodrigo
-from basic_functions import readCSV, calculateDistances #rodrigo
+from shortest_route2 import CalculatePahts #rodrigo
+from basic_functions import readCSV1, calculateDistances #rodrigo
+from basic_functions2 import readCSV, calculateDistancesDictionary #rodrigo
 
 def home(request):
     return render(request, 'app/home.html')
@@ -36,7 +38,7 @@ def sol3(request):
     context = {'title': "Rodrigo Guadalupe's Solution",  'heading1': 'Third solution'}
 
     if request.method == "POST":
-        populated_centers = readCSV('testdataset.csv')
+        populated_centers = readCSV1('testdataset.csv')
         distance_matrix = calculateDistances(populated_centers)
         path = TSP(distance_matrix, populated_centers, 0)
         context = {'title': "Rodrigo Guadalupe's Solution",  'heading1': 'Third solution',
@@ -45,14 +47,14 @@ def sol3(request):
     return render(request, 'app/solutions.html', context)  
 
 def sol4(request):
-    context = {'title': "Diego Salas' Solution",  'heading1': 'Fourth solution'}
+    context = {'title': "Rodrigo Guadalupe's Solution",  'heading1': 'Fourth solution'}
 
     if request.method == "POST":
-        start =  int(request.POST.get("start"))
-        goal =  int(request.POST.get("goal"))
-        shortestPath, path = dijkstraMOD('testdataset.csv', start, goal)
-        context = {'start': start, 'goal': goal, 'title': "Diego Salas' Solution",  'heading1': 'Fourth solution',
-        'shortestPath': shortestPath, 'path': path}
+        palcesDictionary, places = readCSV('testdataset.csv')
+        distancesDictionary = calculateDistancesDictionary(palcesDictionary, places)
+        path = CalculatePahts(distancesDictionary, places, palcesDictionary)
+        context = {'title': "Rodrigo Guadalupe's Solution",  'heading1': 'Fourth solution',
+        'path': path }
         
     return render(request, 'app/solutions.html', context)  
 
