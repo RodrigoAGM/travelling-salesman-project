@@ -15,7 +15,10 @@
                 <form method="POST">
                     {% csrf_token %}
                     <div class="form-group">
-                        {% if title != "Diego Salas' Solution" and title != "Diego Salas' Solution esp" %}
+                        {% if title != "Diego Salas' Solution" and title != "Diego Salas' Solution esp" and title != "Andres Lopez's Solution" %}
+                            <button class="btn btn-outline-info" type="submit">Calculate</button>
+                        {% elif title == "Andres Lopez's Solution" %}
+                            <span>Start: </span><input type='text' name='start'/>
                             <button class="btn btn-outline-info" type="submit">Calculate</button>
                         {% else %}
                             <span>Start: </span><input type='text' name='start'/>

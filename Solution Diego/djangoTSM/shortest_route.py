@@ -73,9 +73,4 @@ def TSP(distance_matrix, populated_centers, pos):
 
     return path
 
-populated_centers = readCSV1('testdataset.csv')
-distance_matrix = calculateDistances(populated_centers)
-
-
-TSP(distance_matrix,populated_centers,0)
 
