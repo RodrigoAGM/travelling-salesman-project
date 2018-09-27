@@ -5,13 +5,21 @@
     <article class="media content-section">
         <div class="media-body">
             <div class="container">
-                <h1>Enter starting node and goal node:</h1>
+                {% if title != "Diego Salas' Solution" %}
+                    <h1>Click the button to see the result:</h1>
+                {% else %}
+                    <h1>Enter starting node and goal node:</h1>
+                {% endif %}
                 <form method="POST">
                     {% csrf_token %}
                     <div class="form-group">
-                        <span>Start: </span><input type='text' name='start'/>
-                        <span>Goal: </span><input type='text' name='goal'/>
-                        <button class="btn btn-outline-info" type="submit">Calculate</button>
+                        {% if title != "Diego Salas' Solution" %}
+                            <button class="btn btn-outline-info" type="submit">Calculate</button>
+                        {% else %}
+                            <span>Start: </span><input type='text' name='start'/>
+                            <span>Goal: </span><input type='text' name='goal'/>
+                            <button class="btn btn-outline-info" type="submit">Calculate</button>
+                        {% endif %}
                     </div>
                 </form>
             </div>
@@ -21,14 +29,22 @@
 
     <article class="media content-section">
         <div class="media-body">
-        <h1>{{ heading1 }}</h1>
-        <br>
+        {% if title != "Diego Salas' Solution" %}
+            <h1>{{ heading1 }}</h1>
+            <br>
+            <div class="article-metadata">
+                <h4>The path is: {{ path }}</h4>
+            </div>
+        {% else %}
+            <h1>{{ heading1 }}</h1>
+            <br>
             <div class="article-metadata">
                 <h4 class="mr-2">Starting node: {{ start }}</h4>
                 <h4  class="mr-2">Goal node: {{ goal }}</h4>
             </div>
             <h4>The shortest distance is: {{ shortestPath }}</h4>
             <h4>The path is: {{ path }}</h4>
+        {% endif %}
         </div>
     </article>
     

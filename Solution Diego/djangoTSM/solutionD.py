@@ -49,26 +49,23 @@ def readCSV(filename):
     dictionary = {}
     with open(filename) as csvfile:
         file = csv.reader(csvfile, delimiter=',')
-        idelem = -1
+        idelem = 1
         for row in file:
-            if idelem != -1:
-                elem = {}
-                elem["id"] = row[0]
-                elem["nombre"] = str(row[1])
-                elem["idForaneo"] = int(row[2])
-                elem["longitud"] = float(row[3])
-                elem["latitud"] = float(row[4])
-                dictionary[idelem] = elem
-                del elem
-            
+            elem = {}
+            elem["id"] = row[0]
+            elem["nombre"] = str(row[1])
+            elem["idForaneo"] = int(row[2])
+            elem["longitud"] = float(row[3])
+            elem["latitud"] = float(row[4])
+            dictionary[idelem] = elem
+            del elem   
             idelem += 1
-    
+
     return dictionary
 
 def completaDiccionarios(filename, start, goal):
     
     dictionary = readCSV(filename)
-#     print(dictionary)
     dicPesos = {}
     dicEnlaces = {}
     dicAsignacionID = {}
