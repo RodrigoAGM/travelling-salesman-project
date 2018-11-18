@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView, CreateView
 from App.forms import HomeForm
 from django.shortcuts import render
-from solutionD2 import dijkstraMOD, dijkstraMOD2 #diego
+from solutionD2 import dijkstraMOD, dijkstraMOD2, makingDictonaries2 #diego
 from solutionA1 import dij #andres
 from shortest_route import TSP #rodrigo
 from shortest_route2 import CalculatePahts #rodrigo
@@ -68,6 +68,17 @@ def sol5(request):
         shortestPath, path = dijkstraMOD2(graph, start, goal)
         context = {'start': start, 'goal': goal, 'title': "Diego Salas' Solution esp",  'heading1': 'Fifth solution',
         'shortestPath': shortestPath, 'path': path}
+        
+    return render(request, 'app/solutions.html', context)  
+
+def sol6(request):
+    context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'Sixth solution'}
+
+    if request.method == "POST":
+        path = makingDictonaries2('20000.csv')
+        print(path)
+        context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'Sixth solution',
+        'path': path}
         
     return render(request, 'app/solutions.html', context)  
 

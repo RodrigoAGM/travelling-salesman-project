@@ -5,7 +5,7 @@
     <article class="media content-section">
         <div class="media-body">
             <div class="container">
-                {% if title == "Rodrigo Guadalupe's Solution" %}
+                {% if title == "Rodrigo Guadalupe's Solution" or title == "Diego Salas' Solution Kruskal" %}
                     <h1>Click the button to see the result:</h1>
                 {% elif title == "Diego Salas' Solution esp" %}
                     <h1>Enter letters from 'a' to 'e':</h1>
@@ -35,6 +35,12 @@
     <article class="media content-section">
         <div class="media-body">
         {% if title != "Diego Salas' Solution" and title != "Diego Salas' Solution esp" %}
+            <h1>{{ heading1 }}</h1>
+            <br>
+            <div class="article-metadata">
+                <h4>The path is: {{ path }}</h4>
+            </div>
+        {% elif title == "Diego Salas' Solution Kruskal" %}
             <h1>{{ heading1 }}</h1>
             <br>
             <div class="article-metadata">
