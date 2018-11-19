@@ -89,20 +89,44 @@ def readFile(filename):
 
     return dictionary, g
 
+def readCE(filename):
+    dictionary = {}
+    with open(filename, encoding='utf-8-sig') as csvfile:
+        file = csv.reader(csvfile, delimiter=',')
+
+        idelem = -1
+
+        for row in file:
+            if idelem != -1:
+                elem = {}
+                elem["id"]=row[0]
+                elem["name"] = row[1]
+                elem["distrito"] = row[3]
+                elem["xCord"] = float(row[5])
+                elem["yCord"] = float(row[6])
+                dictionary[idelem] = elem
+                del elem
+            idelem += 1
+
+        g = Graph(idelem)
+
+    return dictionary
+
 def calcularDistancia(longitud1, longitud2, latitud1, latitud2):
     return ((longitud1-longitud2)**2 + (latitud1-latitud2)**2)**(0.5)
 
-def makingDictonaries(filename):
-    dictionary = readFile(filename)
+def makingDictonaries1(filename):
+    dictionary, graph = readCE(filename)
     distancia={}
-    #1000
+    #100
     for i in dictionary:
         aux = {}
         for j in dictionary:
             aux[j] = calcularDistancia(float(dictionary[i]["xCord"]),float(dictionary[j]["xCord"]),float(dictionary[i]["yCord"]),float(dictionary[j]["yCord"]))
-        distancia[i] = aux
+            graph.addEdge(i, j, aux[j])
 
-    return distancia
+    return graph.KrustalMST(dictionary)
+
 
 def makingDictonaries2(filename):
     dictionary, graph = readFile(filename)

@@ -72,12 +72,23 @@ def sol5(request):
     return render(request, 'app/solutions.html', context)  
 
 def sol6(request):
-    context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'Sixth solution', 'active': False}
+    context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'Sixth solution: centros poblados', 'active': False}
 
     if request.method == "POST":
         path = makingDictonaries2('20000.csv')
         print(path)
-        context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'Sixth solution',
+        context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'Sixth solution: centros poblados',
+        'path': path, 'active': True}
+        
+    return render(request, 'app/solutions.html', context)  
+
+def sol7(request):
+    context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'seventh solution: centros educativos', 'active': False}
+
+    if request.method == "POST":
+        path = makingDictonaries2('CE.csv')
+        print(path)
+        context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'seventh solution: centros educativos',
         'path': path, 'active': True}
         
     return render(request, 'app/solutions.html', context)  

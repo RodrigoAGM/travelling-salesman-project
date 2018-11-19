@@ -11,4 +11,5 @@ urlpatterns = [
     path('sol4/', sol4, name='TSM-Sol4'),   
     path('sol5/', sol5, name='TSM-Sol5'),   
     path('sol6/', sol6, name='TSM-Sol6'),   
+    path('sol7/', sol6, name='TSM-Sol7'),   
 ]
