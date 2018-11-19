@@ -60,4 +60,4 @@ def prim(distancia,nombre):
     print(path)
 
 
-makingDictonarys("dataset.csv")
+makingDictonarys("datasetA.csv")
