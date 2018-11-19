@@ -110,8 +110,9 @@ def readCE(filename):
             idelem += 1
 
         g = Graph(idelem)
+        print('nodos:', g.V)
 
-    return dictionary
+    return dictionary, g
 
 def calcularDistancia(longitud1, longitud2, latitud1, latitud2):
     return ((longitud1-longitud2)**2 + (latitud1-latitud2)**2)**(0.5)

@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView, CreateView
 from App.forms import HomeForm
 from django.shortcuts import render
-from solutionD2 import dijkstraMOD, dijkstraMOD2, makingDictonaries2 #diego
+from solutionD2 import dijkstraMOD, dijkstraMOD2, makingDictonaries2, makingDictonaries1 #diego
 from solutionA1 import dij #andres
 from shortest_route import TSP #rodrigo
 from shortest_route2 import CalculatePahts #rodrigo
@@ -75,7 +75,7 @@ def sol6(request):
     context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'Sixth solution: centros poblados', 'active': False}
 
     if request.method == "POST":
-        path = makingDictonaries2('dataset.csv')
+        path = makingDictonaries2('20000.csv')
         print(path)
         context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'Sixth solution: centros poblados',
         'path': path, 'active': True}
@@ -86,7 +86,7 @@ def sol7(request):
     context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'seventh solution: centros educativos', 'active': False}
 
     if request.method == "POST":
-        path = makingDictonaries2('CE.csv')
+        path = makingDictonaries1('CE.csv')
         print(path)
         context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'seventh solution: centros educativos',
         'path': path, 'active': True}

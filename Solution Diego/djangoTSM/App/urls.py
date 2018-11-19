@@ -1,5 +1,5 @@
 from django.urls import path
-from App.views import home, sol1, sol2, sol3, sol4, sol5, sol6
+from App.views import home, sol1, sol2, sol3, sol4, sol5, sol6, sol7
 
 from . import views
 
@@ -11,5 +11,5 @@ urlpatterns = [
     path('sol4/', sol4, name='TSM-Sol4'),   
     path('sol5/', sol5, name='TSM-Sol5'),   
     path('sol6/', sol6, name='TSM-Sol6'),   
-    path('sol7/', sol6, name='TSM-Sol7'),   
+    path('sol7/', sol7, name='TSM-Sol7'),   
 ]
