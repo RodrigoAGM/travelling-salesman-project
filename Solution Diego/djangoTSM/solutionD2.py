@@ -86,6 +86,7 @@ def readFile(filename):
             idelem += 1
         
         g = Graph(idelem)
+        print('nodos:', g.V)
 
     return dictionary, g
 

@@ -75,7 +75,7 @@ def sol6(request):
     context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'Sixth solution: centros poblados', 'active': False}
 
     if request.method == "POST":
-        path = makingDictonaries2('20000.csv')
+        path = makingDictonaries2('dataset.csv')
         print(path)
         context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'Sixth solution: centros poblados',
         'path': path, 'active': True}
