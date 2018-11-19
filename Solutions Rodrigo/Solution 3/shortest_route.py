@@ -24,6 +24,29 @@ def readCSV(filename):
     
     return array
 
+def readCSVIE(filename):
+    """
+    Function that recieves a filename, reads that csv file and returns an array
+    of dictionaries with the name, xcord and ycord of each populated center of the file. 
+    """
+    array = []
+    with open(filename) as csvfile:
+        file = csv.reader(csvfile, delimiter=',')
+        idelem = -1
+
+        for row in file:
+            if idelem != -1:
+                elem = {}
+                elem["name"] = row[1]
+                elem["xCord"] = float(row[5])
+                elem["yCord"] = float(row[6])
+                array.append(elem)
+                del elem
+            
+            idelem += 1
+    
+    return array
+
 def getShortestNode(distances):
     """
     Function that finds the position of the shortest element of an array

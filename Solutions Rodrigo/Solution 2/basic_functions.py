@@ -32,6 +32,38 @@ def readCSV(filename):
     
     return dictionary, places
 
+def readCSVIE(filename):
+    """
+    Function that recieves a filename, reads that csv file and returns a dictionary
+    of arrays grouped by the department of the elements and with the name, xcord and 
+    ycord of each populated center of the file. Also, the dunction returs an array 
+    containing all the departments.
+    """
+    dictionary = {}
+    places = []
+    with open(filename) as csvfile:
+        file = csv.reader(csvfile, delimiter=',')
+        idelem = -1
+
+        for row in file:
+            if idelem != -1:
+                elem = {}
+                elem["name"] = row[1]
+                elem["xCord"] = float(row[5])
+                elem["yCord"] = float(row[6])
+                if row[3] not in dictionary:
+                    dictionary[row[3]] = []
+                    dictionary[row[3]].append(elem)
+                    places.append(row[3])
+                else:
+                    dictionary[row[3]].append(elem)
+
+                del elem
+            
+            idelem += 1
+    
+    return dictionary, places
+
 def calculateDistances(dictionary, department):
     """
     Function that recieves an dictionary od populated centers and a department
