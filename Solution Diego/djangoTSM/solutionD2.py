@@ -1,4 +1,5 @@
 import csv
+from collections import defaultdict
 
 class Graph:
 
@@ -65,18 +66,6 @@ class Graph:
                 self.union(parent, rank, x, y)
 
         return result
-
-    # def path(self, dictionary, result, start, goal):
-        
-    #     i = 0
-    #     path = []
-    #     distance = []
-
-    #     for u, v, w in result:
-    #         if result[i][0] == start:
-
-    #         i += 1
-
 
 def readFile(filename):
     dictionary = {}
