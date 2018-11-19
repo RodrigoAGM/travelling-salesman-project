@@ -9,6 +9,7 @@ class Graph:
 
     def addEdge(self, u, v, w):
         self.graph.append([u, v, w])
+        print(u, v, w)
 
     #encontramos los padres 
     def find(self, parent, i):

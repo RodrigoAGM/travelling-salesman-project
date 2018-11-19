@@ -3,10 +3,9 @@ from App.forms import HomeForm
 from django.shortcuts import render
 from solutionD2 import dijkstraMOD, dijkstraMOD2, makingDictonaries2, makingDictonaries1 #diego
 from solutionA1 import dij #andres
-from shortest_route import TSP #rodrigo
-from shortest_route2 import CalculatePahts #rodrigo
-from basic_functions import readCSV1, calculateDistances #rodrigo
-from basic_functions2 import readCSV, calculateDistancesDictionary #rodrigo
+from shortest_route3 import readCSV, readCSVIE, TSP #Roddrigo
+from tf import makingDictonarys #andres
+
 
 def home(request):
     return render(request, 'app/home.html')
@@ -38,9 +37,8 @@ def sol3(request):
     context = {'title': "Rodrigo Guadalupe's Solution",  'heading1': 'Third solution', 'active': False}
 
     if request.method == "POST":
-        populated_centers = readCSV1('testdataset.csv')
-        distance_matrix = calculateDistances(populated_centers)
-        path = TSP(distance_matrix, populated_centers, 0)
+        populated_centers = readCSV('testdataset.csv')
+        path = TSP(populated_centers)
         context = {'title': "Rodrigo Guadalupe's Solution",  'heading1': 'Third solution',
         'path': path, 'active': True}
         
@@ -50,24 +48,18 @@ def sol4(request):
     context = {'title': "Rodrigo Guadalupe's Solution",  'heading1': 'Fourth solution', 'active': False}
 
     if request.method == "POST":
-        palcesDictionary, places = readCSV('testdataset.csv')
-        distancesDictionary = calculateDistancesDictionary(palcesDictionary, places)
-        path = CalculatePahts(distancesDictionary, places, palcesDictionary)
         context = {'title': "Rodrigo Guadalupe's Solution",  'heading1': 'Fourth solution',
-        'path': path,'active': True }
+        'active': True }
         
     return render(request, 'app/solutions.html', context)  
 
 def sol5(request):
-    context = {'title': "Diego Salas' Solution esp",  'heading1': 'Fifth solution', 'active': False}
-    graph = {'a': {'b':10,'c':3 },'b': {'c':1,'d':2},'c': {'b':4,'d':8,'e':2},'d': {'e':7},'e': {'d':9}} 
+    context = {'title': "Andres Lopez's Solution",  'heading1': 'Fifth solution: prim', 'active': False}
 
     if request.method == "POST":
-        start = request.POST.get("start")
-        goal = request.POST.get("goal")
-        shortestPath, path = dijkstraMOD2(graph, start, goal)
-        context = {'start': start, 'goal': goal, 'title': "Diego Salas' Solution esp",  'heading1': 'Fifth solution',
-        'shortestPath': shortestPath, 'path': path, 'active': True}
+        path = makingDictonarys("datasetA.csv")
+        context = {'title': "Andres Lopez's Solution",  'heading1': 'Fifth solution: prim',
+        'path': path, 'active': True}
         
     return render(request, 'app/solutions.html', context)  
 
@@ -75,7 +67,7 @@ def sol6(request):
     context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'Sixth solution: centros poblados', 'active': False}
 
     if request.method == "POST":
-        path = makingDictonaries2('20000.csv')
+        path = makingDictonaries2('1000.csv')
         print(path)
         context = {'title': "Diego Salas' Solution Kruskal",  'heading1': 'Sixth solution: centros poblados',
         'path': path, 'active': True}
